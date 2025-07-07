@@ -2,6 +2,10 @@
 
 [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/env3d/cs1-llm-local-chatbot?quickstart=1)
 
+Click the image below to see how Codespaces can launch a fully pre-configured local LLM dev environment in about a minute:
+
+[![Watch the demo](https://img.youtube.com/vi/Cw5bBQgvi7k/hqdefault.jpg)](https://youtu.be/Cw5bBQgvi7k)
+
 ## Overview
 
 In this assignment, you'll build a conversational AI chatbot using python. You'll start with a simple chatbot that forgets each conversation, then enhance it to maintain memory by building up conversation history.
