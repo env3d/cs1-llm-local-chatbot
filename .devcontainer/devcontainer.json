@@ -1,0 +1,21 @@
+{
+  "name": "Python Development disable copilot",
+  "features": {},
+  "postCreateCommand": "bash .devcontainer/install.sh",
+  // Optional: Uncomment the following line to hard-delete Copilot extension
+  "postAttachCommand": "rm -rf ~/.vscode-remote/extensions/github.copilot* && chmod -w ~/.vscode-remote/extensions && exit",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-python.python",  // Python extension
+        "ms-python.vscode-pylance"  // Pylance extension (optional, for better performance)        
+      ],
+      "settings": {
+        "python.pythonPath": "/usr/local/bin/python", // Path to Python interpreter
+        "extensions.ignoreRecommendations": true,
+        "github.copilot.enable": {"*":false}, // Disable GitHub 
+        "github.copilot.enablePanel": false    
+      }    
+    }
+  }
+}
