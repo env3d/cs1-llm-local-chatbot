@@ -22,8 +22,6 @@ This project uses a self-contained repository with a local Large Language Model,
 
 **Privacy Preservation**: All interactions remain local to the student's environment. No data is transmitted to external services, ensuring student conversations remain private and compliant with educational privacy requirements.
 
-**Offline Capability**: Once the environment is set up, the chatbot functions without internet connectivity, making it suitable for environments with restricted or unreliable network access.
-
 **Consistent Behavior**: Local models provide predictable responses without the variability of cloud-based services that may change over time or have different versions.
 
 ## GitHub Codespaces Integration
