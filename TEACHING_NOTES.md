@@ -163,13 +163,21 @@ Through hands-on experimentation, the student encountered the following fundamen
 
 This last point is especially important: the student realized that unit tests may pass but still not validate behavior in a meaningful way, because LLM outputs are inherently probabilistic. This challenges assumptions students often have from deterministic programming and exposes them to the real-world complexity of AI system testing.
 
-### Why This Teaching Moment is Unique
-This discovery is **impossible** to replicate with standard ChatGPT interfaces because:
-- ChatGPT is heavily fine-tuned for arithmetic
-- Students can't inspect or modify the conversation structure
-- The interface hides the underlying prompt mechanics
+### Why This Teaching Moment Is Unique
+
+This learning experience is difficult to replicate with commercial interfaces like ChatGPT, because:
+
+Fine-tuned models (like ChatGPT) often mask failure modes—especially in math.
+
+Students cannot inspect or control the structure of the prompt history.
+
+The interface abstracts away the mechanics of how input context is constructed and passed.
+
+
+By working with a local model and full visibility into the prompt loop, students directly experience the limitations and unpredictability of LLMs in a way that encourages deep inquiry.
 
 ### Pedagogical Impact
-Instead of being told "LLMs are probabilistic text generators," the student experienced this truth directly. This transforms abstract concepts into concrete understanding through authentic discovery learning.
 
-*This interaction exemplifies how local, inspectable LLM environments create learning opportunities that commercial AI interfaces simply cannot provide.*
+Rather than being told, “LLMs are probabilistic text generators,” students uncover that truth through direct interaction. This kind of authentic, discovery-based learning is often more impactful than lectures or static examples.
+
+The assignment transforms abstract concepts—like non-determinism, prompt engineering, and testability—into tangible experiences. It encourages debugging not just of code, but of assumptions. And it illustrates why transparent, local LLM environments are powerful tools for teaching both computing fundamentals and modern AI concepts.
