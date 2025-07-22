@@ -159,7 +159,9 @@ Through hands-on experimentation, the student encountered the following fundamen
 1. **Non-deterministic behavior**: Same input → different outputs
 2. **Model limitations**: Arithmetic is hard for language models
 3. **Context vs. understanding**: Having conversation history doesn't guarantee logical reasoning
-4. **Testing limitations**: Traditional tests (i.e. pytest) are not suitable for LLM testing since LLMs output are non-deterministic.
+4. **Testing limitations**: Traditional testing tools like pytest may pass even when the model gives incorrect or inconsistent results—highlighting that LLM evaluation requires new strategies.
+
+This last point is especially important: the student realized that unit tests may pass but still not validate behavior in a meaningful way, because LLM outputs are inherently probabilistic. This challenges assumptions students often have from deterministic programming and exposes them to the real-world complexity of AI system testing.
 
 ### Why This Teaching Moment is Unique
 This discovery is **impossible** to replicate with standard ChatGPT interfaces because:
