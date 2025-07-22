@@ -126,3 +126,48 @@ The extension framework accommodates various assessment methods:
 
 **Progressive Complexity Management**:
 Extensions create pathways to advanced topics while preserving the supportive framework, enabling instructors to match challenges with individual student readiness and motivation levels.
+
+## Teaching Moment: When Students Discover LLM Limitations Through Direct Experience
+
+### Student Question
+*A student working through the chatbot memory exercise encounters unexpected behavior:*
+
+**Student:** "Hi Jason, I was working on the exercises from this lab you shared. I have this code that passes all the pytests, but still don't have the output I want. The previous history is added to the prompt list, but the bot doesn't add the number correctly to the previous answer. What am I doing wrong here?"
+
+```python
+def main():
+    prompt = [{"role": "user", "content": "What is 2 + 2?"},
+              {"role": "assistant", "content": "2 + 2 = 4"}]
+    
+    while True:
+        user_input = input("You: ")
+        if user_input.lower() == "exit":
+            break
+            
+        prompt.append({"role": "user", "content": user_input}) 
+        response = chat(prompt)
+        print("AI:", response)
+        prompt.append({"role": "assistant", "content": response})
+```
+
+### Instructor Response
+**Instructor:** "Oh lol. If you tried it multiple times, it'll get it right sometimes and wrong some other times. That's because smaller LLMs are not good at math. The smaller they are, the worse they get. Try using some other history."
+
+### What the Student Discovered
+Through hands-on experimentation, the student encountered the following fundamental AI concepts:
+
+1. **Non-deterministic behavior**: Same input → different outputs
+2. **Model limitations**: Arithmetic is hard for language models
+3. **Context vs. understanding**: Having conversation history doesn't guarantee logical reasoning
+4. **Testing limitations**: Traditional tests (i.e. pytest) are not suitable for LLM testing since LLMs output are non-deterministic.
+
+### Why This Teaching Moment is Unique
+This discovery is **impossible** to replicate with standard ChatGPT interfaces because:
+- ChatGPT is heavily fine-tuned for arithmetic
+- Students can't inspect or modify the conversation structure
+- The interface hides the underlying prompt mechanics
+
+### Pedagogical Impact
+Instead of being told "LLMs are probabilistic text generators," the student experienced this truth directly. This transforms abstract concepts into concrete understanding through authentic discovery learning.
+
+*This interaction exemplifies how local, inspectable LLM environments create learning opportunities that commercial AI interfaces simply cannot provide.*
