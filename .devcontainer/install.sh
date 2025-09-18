@@ -9,6 +9,9 @@ if [ -f "$MODEL_FILE" ]; then
     exit 0
 fi
 
+# Optionally remove copilot
+# rm -rf ~/.vscode-remote/extensions/github.copilot* && chmod -w ~/.vscode-remote/extensions
+
 # Ensure devcontainer path exists
 mkdir -p "$DEV_PATH"
 
