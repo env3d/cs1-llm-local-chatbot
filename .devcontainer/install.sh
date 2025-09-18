@@ -22,15 +22,19 @@ grep -qxF "export LD_LIBRARY_PATH=$DEV_PATH:\$LD_LIBRARY_PATH" "$BASHRC" || echo
 
 export LLAMA_CPP_LIB_PATH=$DEV_PATH
 export LLAMA_CPP_LIB="$DEV_PATH/libllama.so"
-export LD_LIBRARY_PATH=$DEV_PATH:\$LD_LIBRARY_PATH
+export LD_LIBRARY_PATH=$DEV_PATH:$LD_LIBRARY_PATH
 
 # Install Python package
+echo "⏳ Installing inference engine (llama-cpp-python)..."
 export CMAKE_ARGS="-DLLAMA_BUILD=OFF"
 pip install -q --upgrade pip
 pip install -q llama-cpp-python==0.3.10
+echo "✅ Inference engine installed."
 
 # Download model
-wget -O "$MODEL_FILE" https://huggingface.co/Qwen/Qwen2.5-0.5B-Instruct-GGUF/resolve/main/qwen2.5-0.5b-instruct-q2_k.gguf
+echo "⏳ Downloading model..."
+wget -q -O "$MODEL_FILE" https://huggingface.co/Qwen/Qwen2.5-0.5B-Instruct-GGUF/resolve/main/qwen2.5-0.5b-instruct-q2_k.gguf
+echo "✅ Model downloaded."
 
 echo ""
 echo "✅ DevContainer setup complete! You can now start working on your assignment."
