@@ -1,6 +1,6 @@
 # Building a Basic AI Chatbot with Memory
 
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/?repo=.&ref=main)
+[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/?repo=.&ref=main?quickstart=1)
 
 Click the image below to see how Codespaces can launch a fully pre-configured local LLM dev environment in about a minute:
 
