@@ -1,7 +1,6 @@
 {
   "name": "Python llama.cpp Codespaces",
   "features": {},
-  "postCreateCommand": "bash .devcontainer/install.sh",
   "postAttachCommand": "bash .devcontainer/install.sh; exit",
   "customizations": {
     "vscode": {
