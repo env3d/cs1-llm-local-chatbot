@@ -1,7 +1,7 @@
 #!/bin/bash
 
 DEV_PATH="/workspaces/$(basename $(pwd))/.devcontainer"
-MODEL_FILE="$DEV_PATH/qwen2.5-0.5b-instruct-q2_k.gguf"
+MODEL_FILE="/workspaces/$(basename $(pwd))/qwen2.5-0.5b-instruct-q2_k.gguf"
 
 # Check if model file already exists
 if [ -f "$MODEL_FILE" ]; then
