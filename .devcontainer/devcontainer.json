@@ -3,7 +3,7 @@
   "features": {},
   "postCreateCommand": "bash .devcontainer/install.sh",
   // Optional: Uncomment the following line to hard-delete Copilot extension
-  "postAttachCommand": "rm -rf ~/.vscode-remote/extensions/github.copilot* && chmod -w ~/.vscode-remote/extensions && exit",
+  // "postAttachCommand": "rm -rf ~/.vscode-remote/extensions/github.copilot* && chmod -w ~/.vscode-remote/extensions && exit",
   "customizations": {
     "vscode": {
       "extensions": [
