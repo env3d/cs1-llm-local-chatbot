@@ -1,13 +1,31 @@
 #!/bin/bash
-echo "export LLAMA_CPP_LIB_PATH=/workspaces/$(basename $(pwd))/.devcontainer/" >> ~/.bashrc
-echo 'export LD_LIBRARY_PATH=/workspaces/'"$(basename $(pwd))"'/.devcontainer/:$LD_LIBRARY_PATH' >> ~/.bashrc
-export LLAMA_CPP_LIB=/workspaces/$(basename $(pwd))/.devcontainer/libllama.so
-CMAKE_ARGS="-DLLAMA_BUILD=OFF" pip install llama-cpp-python==0.3.10
 
-# wget https://huggingface.co/Qwen/Qwen3-0.6B-GGUF/resolve/main/Qwen3-0.6B-Q8_0.gguf
-# smallest qwen model
-wget https://huggingface.co/Qwen/Qwen2.5-0.5B-Instruct-GGUF/resolve/main/qwen2.5-0.5b-instruct-q2_k.gguf
+DEV_PATH="/workspaces/$(basename $(pwd))/.devcontainer"
+MODEL_FILE="$DEV_PATH/qwen2.5-0.5b-instruct-q2_k.gguf"
+
+# Check if model file already exists
+if [ -f "$MODEL_FILE" ]; then
+    echo "✅ Model already exists, skipping setup."
+    exit 0
+fi
+
+# Ensure devcontainer path exists
+mkdir -p "$DEV_PATH"
+
+# Set environment variables if not already in .bashrc
+BASHRC="$HOME/.bashrc"
+grep -qxF "export LLAMA_CPP_LIB_PATH=$DEV_PATH" "$BASHRC" || echo "export LLAMA_CPP_LIB_PATH=$DEV_PATH" >> "$BASHRC"
+grep -qxF "export LD_LIBRARY_PATH=$DEV_PATH:\$LD_LIBRARY_PATH" "$BASHRC" || echo "export LD_LIBRARY_PATH=$DEV_PATH:\$LD_LIBRARY_PATH" >> "$BASHRC"
+
+export LLAMA_CPP_LIB="$DEV_PATH/libllama.so"
+
+# Install Python package
+export CMAKE_ARGS="-DLLAMA_BUILD=OFF"
+pip install --upgrade pip
+pip install llama-cpp-python==0.3.10
+
+# Download model
+wget -O "$MODEL_FILE" https://huggingface.co/Qwen/Qwen2.5-0.5B-Instruct-GGUF/resolve/main/qwen2.5-0.5b-instruct-q2_k.gguf
 
 echo ""
-echo "✅ DevContainer setup complete!"
-echo "You can now start working on your assignment."
+echo "✅ DevContainer setup complete! You can now start working on your assignment."
