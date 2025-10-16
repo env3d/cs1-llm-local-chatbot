@@ -1,25 +1,19 @@
 from chat import chat
 
+# Modify the main function as per requirements from README.md
+# Below is a simple example of how to use the chat function
+
 def main():
-    while True:
-        # Get input from the user
-        user_input = input("You: ")
-        
-        # Check if the user wants to exit
-        if user_input.lower() == "exit":
-            print("Goodbye!")
-            break
 
-        # Build the prompt for the chat function
-        prompt = [
-            {"role": "user", "content": user_input}
-        ]
+    # Ask user for input and call the chat function
+    user_input = input("User: ")
 
-        # Call the chat function with the prompt
-        response = chat(prompt)
+    # Call the chat function with user input
+    response = chat( [{"role": "user", "content": user_input}] )
 
-        # Print the response from the AI
-        print("AI:", response)
+    # Print the AI's response and exit
+    print("AI:", response)
 
 if __name__ == '__main__':
+    # Launch the main() function if `python main.py` is entered from the terminal
     main()
