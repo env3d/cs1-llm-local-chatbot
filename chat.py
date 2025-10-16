@@ -6,6 +6,7 @@ import sys, os
 running_under_testrunner = (
     os.environ.get("TESTRUNNER", "").lower() in ("1", "true", "yes")
     or "PYTEST_CURRENT_TEST" in os.environ
+    or os.environ.get("GITHUB_ACTIONS", "").lower() in ("1", "true", "yes")
 )
 
 llm = None
